@@ -1,14 +1,12 @@
+$color1 : #E8CDAD;
+$color2 : #F2EFCC;
+$color3 : #BAC6A6;
+
 //Web font
 @font-face {
   font-family: uzura_font;
   src: local('uzura_font');
   src : url("fonts/uzura.ttf") format('truetype');
-}
-
-@font-face {
-  font-family: azukiL;
-  src: local('azukiL_font');
-  src : url("fonts/azukiL.ttf") format('truetype');
 }
 
 //基調設定
@@ -17,13 +15,12 @@ body {
   padding: 0;
   font-size: 1.1em;
   line-height: 1.4em;
-  font-family: azukiL , sans-serif;
-
+  font-family: uzura_font , sans-serif;
 }
 
 // セクション間
 section{
-  margin-bottom : 2.5em;
+  margin-bottom : 1em;
 
   // セクション見出しとそれに続くコンテンツの余白調整
   h3 {
@@ -45,8 +42,10 @@ ul {
 
 
 
-//ページ全体の
+//ページ全体の調整
 .app {
+
+  background-color: $color1;
   width: 100%;
   .el-main {
     width: 100%;
@@ -63,6 +62,51 @@ ul {
     }
     h1, h2, h3{
       font-family: uzura_font , sans-serif;
+    }
+    h3 {
+      color: $color2;
+      background-color: $color3;
+      padding: 0.4em 0.2em;
+      border-radius: 0.4em;
+      margin: 0.3em -0.5em 0.5em;
+    }
+    section {
+      padding: 0.01em 1em;
+
+      background-color:white;
+      border-radius: 0.3em;
+    }
+    .el-card__header{
+      background-color: $color2;
+      padding: 0.5em 1em;
+    }
+    .el-card__body{
+      font-size:0.9em;
+      padding: 0.5em 1em;
+    }
+
+    @media only screen and (max-width: 480px) {
+      p, ul {
+        font-size: 0.9em;
+      }
+      h3 {
+        margin: 0.2em -0.3em 0.5em;
+      }
+      section {
+        padding: 0.01em 0.5em;
+      }
+      .el-card{
+        margin: 0.2em -0.2em;
+        ul{
+          font-size:1.1em;
+        }
+      }
+      //カルーセルの中でネガティブマージンを設定するとめり込むので
+      //カルーセル側でパディングしてカード側のマージンをリセットする
+      .el-carousel{
+        margin: 0 -0.3em;
+        .el-card { margin:0 0.3em 0.6em}
+      }
     }
   }
 }
@@ -88,6 +132,13 @@ ul {
       padding-right:1em;
     }
   }
+}
+
+.conclusion{
+  text-align: center;
+
+  margin: 4em 0;
+  padding:4em;
 }
 
 

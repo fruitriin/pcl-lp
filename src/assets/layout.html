@@ -4,23 +4,23 @@
 
   <el-main>
     <section class="description">
+      <h3>What's this?</h3>
       <p v-for="d in descriptions" v-html="d.nl2br()"></p>
     </section>
     <section class="concept">
       <h3>Concept</h3>
-      <p v-html="concept"></p>
+      <p v-html="concept.nl2br()"></p>
     </section>
 
     <section class="channels">
       <h3>Channels</h3>
       <el-row type="flex" justify="center" style="flex-wrap: wrap;">
-        <el-col v-for="chan in channels" :sm="8">
+        <el-col v-for="(chan, k) in channels" :sm="8" :key="k">
           <el-card>
             <div slot="header" class="clearfix">
               <span v-html="chan.title.nl2br()"></span>
             </div>
-            <div>
-              {{chan.body}}
+            <div v-html="chan.body.nl2br()">
             </div>
           </el-card>
         </el-col>
@@ -30,19 +30,18 @@
 
     <section class="events">
       <h3>Events</h3>
-      <el-carousel class="hidden-sm-and-up" :interval="6000"
-                   indicator-position="outside" arrow="always">
+      <!-- SPカルーセル -->
+      <el-carousel class="hidden-sm-and-up" :interval="6000" indicator-position="outside" arrow="always" height="14em">
         <el-carousel-item v-for="(event, key) in events" :key="key">
           <event-card :event="event"></event-card>
         </el-carousel-item>
       </el-carousel>
+      <!-- PCカルーセル -->
       <el-carousel class="hidden-xs-only"
-                   :autoplay="false" arrow="always">
-        <el-carousel-item v-for="page in Math.ceil(events.length/2) " :key="page"
-                          height="15em"
-        >
+                   :autoplay="false" arrow="always" height="14em">
+        <el-carousel-item v-for="page in Math.ceil(events.length/2) " :key="page">
           <el-row type="flex" justify="space-around">
-            <el-col v-for="ite in [1,2]" :span="11">
+            <el-col v-for="ite in [1,2]" :span="11" :key="ite">
               <event-card :event="events[(ite-1) + (page-1)*2]"></event-card>
             </el-col>
           </el-row>
@@ -53,18 +52,7 @@
     <section class="requirements">
       <h3>Requirements</h3>
       <ul>
-        <li>
-          エンジニア、デザイナー、プランナー等、Web・アプリ制作に携わるクリエイターであること
-          <ul><li>職種不問</li></ul>
-        </li>
-        <li>
-          仲間を互いに尊重し合えること
-          <ul><li>他の人に迷惑をかける方は退部も</li></ul>
-        </li>
-        <li>
-          円滑な運営にご協力頂けること
-          <ul><li>無断ドタキャンや部室を綺麗に使えない方はNG</li></ul>
-        </li>
+        <li v-for="(text, k) in requirements"  :key="k" v-html="text.nl2br()"></li>
       </ul>
 
     </section>
