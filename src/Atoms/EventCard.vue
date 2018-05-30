@@ -1,19 +1,15 @@
 <template>
-  <el-card style="height: 250px;">
+  <el-card>
     <div slot="header" class="clearfix">
       <span>{{event.title}}</span>
-      <span v-if="event.date !== ''">
-                  - {{event.date}}
-                </span>
+      <template v-if="event.date !== ''">
+        <span class="hidden-xs-only">- {{event.date}}</span>
+        <div class="hidden-sm-and-up">{{event.date}}</div>
+      </template>
     </div>
     <div class="text item">
       <ul>
-        <li
-          v-for="(item,key) in event.body"
-          :key="key"
-        >
-          {{item}}
-        </li>
+        <li v-for="(item,key) in event.body" :key="key" v-html="item.nl2br()" ></li>
       </ul>
     </div>
   </el-card>

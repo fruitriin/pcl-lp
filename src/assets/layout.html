@@ -1,0 +1,82 @@
+<div class="app">
+  <div class="key-visual">
+  </div>
+
+  <el-main>
+    <section class="description">
+      <p v-for="d in descriptions" v-html="d.nl2br()"></p>
+    </section>
+    <section class="concept">
+      <h3>Concept</h3>
+      <p v-html="concept"></p>
+    </section>
+
+    <section class="channels">
+      <h3>Channels</h3>
+      <el-row type="flex" justify="center" style="flex-wrap: wrap;">
+        <el-col v-for="chan in channels" :sm="8">
+          <el-card>
+            <div slot="header" class="clearfix">
+              <span v-html="chan.title.nl2br()"></span>
+            </div>
+            <div>
+              {{chan.body}}
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+
+    </section>
+
+    <section class="events">
+      <h3>Events</h3>
+      <el-carousel class="hidden-sm-and-up" :interval="6000"
+                   indicator-position="outside" arrow="always">
+        <el-carousel-item v-for="(event, key) in events" :key="key">
+          <event-card :event="event"></event-card>
+        </el-carousel-item>
+      </el-carousel>
+      <el-carousel class="hidden-xs-only"
+                   :autoplay="false" arrow="always">
+        <el-carousel-item v-for="page in Math.ceil(events.length/2) " :key="page"
+                          height="15em"
+        >
+          <el-row type="flex" justify="space-around">
+            <el-col v-for="ite in [1,2]" :span="11">
+              <event-card :event="events[(ite-1) + (page-1)*2]"></event-card>
+            </el-col>
+          </el-row>
+        </el-carousel-item>
+      </el-carousel>
+    </section>
+
+    <section class="requirements">
+      <h3>Requirements</h3>
+      <ul>
+        <li>
+          エンジニア、デザイナー、プランナー等、Web・アプリ制作に携わるクリエイターであること
+          <ul><li>職種不問</li></ul>
+        </li>
+        <li>
+          仲間を互いに尊重し合えること
+          <ul><li>他の人に迷惑をかける方は退部も</li></ul>
+        </li>
+        <li>
+          円滑な運営にご協力頂けること
+          <ul><li>無断ドタキャンや部室を綺麗に使えない方はNG</li></ul>
+        </li>
+      </ul>
+
+    </section>
+    <section class="conclusion">
+      <p>一緒に遊びたくなってこない？</p>
+      <h2>Product Creator's Link</h2>
+      Join now!
+    </section>
+
+  </el-main>
+
+  <el-footer>
+
+  </el-footer>
+</div>

@@ -1,0 +1,114 @@
+//Web font
+@font-face {
+  font-family: uzura_font;
+  src: local('uzura_font');
+  src : url("fonts/uzura.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: azukiL;
+  src: local('azukiL_font');
+  src : url("fonts/azukiL.ttf") format('truetype');
+}
+
+//基調設定
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+  line-height: 1.4em;
+  font-family: azukiL , sans-serif;
+
+}
+
+// セクション間
+section{
+  margin-bottom : 2.5em;
+
+  // セクション見出しとそれに続くコンテンツの余白調整
+  h3 {
+    margin-bottom:0.4em;
+    + p, + ul {
+      margin-top: 0;
+    }
+  }
+}
+
+// リストレンダリングの余白
+ul {
+  margin-left: 0;
+  padding-left : 1em;
+  > li{
+    margin-bottom: 0.3em;
+  }
+}
+
+
+
+//ページ全体の
+.app {
+  width: 100%;
+  .el-main {
+    width: 100%;
+    @media only screen and (min-width: 800px){
+      width:800px;
+      margin: 0 auto;
+    }
+    @media only screen and (min-width: 1025px){
+      width: 960px;
+    }
+
+    @media only screen and (min-width: 1200px){
+      width:1024px;
+    }
+    h1, h2, h3{
+      font-family: uzura_font , sans-serif;
+    }
+  }
+}
+.el-card__body{
+  padding: 1em 1.6em;
+}
+
+.channels{
+  .el-card{
+    margin: 0 0.6em;
+    height: 100%;
+  }
+  .el-col-sm-8{
+    margin-bottom: 1.5em;
+  }
+  margin-bottom : 2em;
+}
+
+.events {
+  .el-card {
+    height: 100%;
+    .el-card__body{
+      padding-right:1em;
+    }
+  }
+}
+
+
+.app .key-visual {
+  background-size: contain;
+  -webkit-background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  display: block;
+  background-image: url(background_sp.png);
+  height: calc(100vw / 16 * 10);
+
+  @media only screen and (min-width: 920px) {
+    background-size: cover;
+    height: 90vh;
+  }
+
+  @media only screen and (min-width: 800px) {
+    height: calc(100vw / 16 * 10.5);
+    max-height: 90vh;
+    background-image: url(background.png);
+
+  }
+}
