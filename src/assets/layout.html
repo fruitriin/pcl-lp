@@ -14,18 +14,30 @@
 
     <section class="channels">
       <h3>Channels</h3>
-      <el-row type="flex" justify="center" style="flex-wrap: wrap;">
-        <el-col v-for="(chan, k) in channels" :sm="8" :key="k">
-          <el-card>
-            <div slot="header" class="clearfix">
-              <span v-html="chan.title.nl2br()"></span>
-            </div>
-            <div v-html="chan.body.nl2br()">
-            </div>
-          </el-card>
-        </el-col>
-      </el-row>
+      <!-- SPカルーセル -->
+      <el-carousel class="hidden-sm-and-up" :interval="6000" indicator-position="outside" arrow="always" height="14em">
+        <el-carousel-item v-for="(chan, key) in channels" :key="key">
+          <channel-card :event="chan"></channel-card>
+        </el-carousel-item>
+      </el-carousel>
+      <!-- PCカルーセル -->
+      <el-carousel class="hidden-xs-only"
+                   :autoplay="false" arrow="always" height="14em">
+        <el-carousel-item v-for="page in Math.ceil(channels.length/2) " :key="page">
+          <el-row type="flex" justify="space-around">
+            <el-col v-for="ite in [1,2]" :span="11" :key="ite">
+              <channel-card :event="channels[(ite-1) + (page-1)*2]"></channel-card>
+            </el-col>
+          </el-row>
+        </el-carousel-item>
+      </el-carousel>
+    </section>
 
+    <section class="requirements">
+      <h3>Requirements</h3>
+      <ul>
+        <li v-for="(text, k) in requirements"  :key="k" v-html="text.nl2br()"></li>
+      </ul>
     </section>
 
     <section class="events">
@@ -49,13 +61,7 @@
       </el-carousel>
     </section>
 
-    <section class="requirements">
-      <h3>Requirements</h3>
-      <ul>
-        <li v-for="(text, k) in requirements"  :key="k" v-html="text.nl2br()"></li>
-      </ul>
 
-    </section>
     <section class="conclusion">
       <p>一緒に遊びたくなってこない？</p>
       <h2>Product Creator's Link</h2>

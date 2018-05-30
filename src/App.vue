@@ -1,11 +1,12 @@
 <template src="./assets/layout.html" />
 <script>
   // import buttonJoin from "/Atoms/ButtonJoin";
-  import EventCard from "./Atoms/EventCard"
+  import EventCard from "./Atoms/EventCard";
+  import ChannelCard from "./Atoms/ChannelCard";
 
   export default {
     name: 'App',
-    components: {EventCard},
+    components: {EventCard,ChannelCard},
     data() {
       return {
         descriptions : [
