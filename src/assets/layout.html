@@ -17,7 +17,7 @@
       <!-- SPカルーセル -->
       <el-carousel class="hidden-sm-and-up" :interval="6000" indicator-position="outside" arrow="always" height="10em">
         <el-carousel-item v-for="(chan, key) in channels" :key="key">
-          <channel-card :event="chan"></channel-card>
+          <channel-card :chan="chan"></channel-card>
         </el-carousel-item>
       </el-carousel>
       <!-- PCカルーセル -->
@@ -26,7 +26,7 @@
         <el-carousel-item v-for="page in Math.ceil(channels.length/2) " :key="page">
           <el-row type="flex" justify="space-around">
             <el-col v-for="ite in [1,2]" :span="11" :key="ite">
-              <channel-card :event="channels[(ite-1) + (page-1)*2]"></channel-card>
+              <channel-card :chan="channels[(ite-1) + (page-1)*2]"></channel-card>
             </el-col>
           </el-row>
         </el-carousel-item>
@@ -45,7 +45,7 @@
       <!-- SPカルーセル -->
       <el-carousel class="hidden-sm-and-up" :interval="6000" indicator-position="outside" arrow="always" height="14em">
         <el-carousel-item v-for="(event, key) in events" :key="key">
-          <event-card :event="event"></event-card>
+          <event-card :ev="event"></event-card>
         </el-carousel-item>
       </el-carousel>
       <!-- PCカルーセル -->
@@ -54,7 +54,7 @@
         <el-carousel-item v-for="page in Math.ceil(events.length/2) " :key="page">
           <el-row type="flex" justify="space-around">
             <el-col v-for="ite in [1,2]" :span="11" :key="ite">
-              <event-card :event="events[(ite-1) + (page-1)*2]"></event-card>
+              <event-card :ev="events[(ite-1) + (page-1)*2]"></event-card>
             </el-col>
           </el-row>
         </el-carousel-item>

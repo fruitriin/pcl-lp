@@ -1,16 +1,16 @@
 <template>
   <el-card>
     <div slot="header" class="clearfix">
-      <span v-html="event.title"></span>
+      <span v-html="chan.title"></span>
     </div>
-    <div v-html="event.body.nl2br()">
+    <div v-html="chan.body.nl2br()">
     </div>
   </el-card>
 </template>
 
 <script>
   export default {
-    props: {event},
+    props: ["chan"],
   }
 </script>
 

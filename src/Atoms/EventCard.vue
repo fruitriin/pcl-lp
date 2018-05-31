@@ -1,15 +1,15 @@
 <template>
   <el-card>
     <div slot="header" class="clearfix">
-      <span>{{event.title}}</span>
-      <template v-if="event.date !== ''">
-        <span class="hidden-xs-only">- {{event.date}}</span>
-        <div class="hidden-sm-and-up">{{event.date}}</div>
+      <span>{{ev.title}}</span>
+      <template v-if="ev.date !== ''">
+        <span class="hidden-xs-only">- {{ev.date}}</span>
+        <div class="hidden-sm-and-up">{{ev.date}}</div>
       </template>
     </div>
     <div class="text item">
       <ul>
-        <li v-for="(item,key) in event.body" :key="key" v-html="item.nl2br()" ></li>
+        <li v-for="(item,key) in ev.body" :key="key" v-html="item.nl2br()" ></li>
       </ul>
     </div>
   </el-card>
@@ -17,7 +17,7 @@
 
 <script>
     export default {
-        props: {event},
+        props: ["ev"],
         name: "EventCard"
     }
 </script>
