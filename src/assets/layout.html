@@ -15,14 +15,14 @@
     <section class="channels">
       <h3>Channels</h3>
       <!-- SPカルーセル -->
-      <el-carousel class="hidden-sm-and-up" :interval="6000" indicator-position="outside" arrow="always" height="14em">
+      <el-carousel class="hidden-sm-and-up" :interval="6000" indicator-position="outside" arrow="always" height="10em">
         <el-carousel-item v-for="(chan, key) in channels" :key="key">
           <channel-card :event="chan"></channel-card>
         </el-carousel-item>
       </el-carousel>
       <!-- PCカルーセル -->
       <el-carousel class="hidden-xs-only"
-                   :autoplay="false" arrow="always" height="14em">
+                   :autoplay="false" arrow="always" height="10em">
         <el-carousel-item v-for="page in Math.ceil(channels.length/2) " :key="page">
           <el-row type="flex" justify="space-around">
             <el-col v-for="ite in [1,2]" :span="11" :key="ite">
@@ -63,9 +63,10 @@
 
 
     <section class="conclusion">
-      <p>一緒に遊びたくなってこない？</p>
+      <p>一緒に遊びたくなりました？</p>
+      <img src="https://s32.myssl.jp/trickbox/pcl/lp/images/ogp.png">
       <h2>Product Creator's Link</h2>
-      Join now!
+      <el-button v-on:click="join">Join now!</el-button>
     </section>
 
   </el-main>

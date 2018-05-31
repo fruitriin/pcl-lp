@@ -2,20 +2,12 @@ $color1 : #E8CDAD;
 $color2 : #F2EFCC;
 $color3 : #BAC6A6;
 
-//Web font
-@font-face {
-  font-family: uzura_font;
-  src: local('uzura_font');
-  src : url("fonts/uzura.ttf") format('truetype');
-}
-
 //基調設定
 body {
   margin: 0;
   padding: 0;
   font-size: 1.1em;
   line-height: 1.4em;
-  font-family: uzura_font , sans-serif;
 }
 
 // セクション間
@@ -61,7 +53,8 @@ ul {
       width:1024px;
     }
     h1, h2, h3{
-      font-family: uzura_font , sans-serif;
+      font-family: 'Kalam', cursive;
+      line-height: 1em;
     }
     h3 {
       color: $color2;
@@ -142,6 +135,9 @@ ul {
 
   margin: 4em 0;
   padding:4em;
+  img{
+    width:10em;
+  }
 }
 
 
@@ -152,7 +148,7 @@ ul {
   background-position: center bottom;
   display: block;
   background-image: url(background_sp.png);
-  height: calc(100vw / 16 * 10);
+  height: calc(100vw / 16 * 10.55);
 
   @media only screen and (min-width: 920px) {
     background-size: cover;

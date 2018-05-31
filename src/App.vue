@@ -7,6 +7,12 @@
   export default {
     name: 'App',
     components: {EventCard,ChannelCard},
+    methods:{
+      join(){
+        //TODO add to analytics click event
+        location.href='https://docs.google.com/forms/d/e/1FAIpQLSfztSllSrc4mbZmJJkjGBsSfi2Mu8KW1_E-MLOjWEPR8p4aNw/viewform'
+      }
+    },
     data() {
       return {
         descriptions : [
