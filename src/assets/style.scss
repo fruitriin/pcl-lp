@@ -52,8 +52,8 @@ ul {
     @media only screen and (min-width: 1200px){
       width:1024px;
     }
-    h1, h2, h3{
-      font-family: 'Kalam', cursive;
+    h1, h2, h3, .conclusion button{
+      font-family: 'Architects Daughter', cursive;
       line-height: 1em;
     }
     h3 {
@@ -130,13 +130,18 @@ ul {
   }
 }
 
-.conclusion{
+.app .el-main .conclusion{
   text-align: center;
 
   margin: 4em 0;
-  padding:4em;
+  padding:2em;
+  h2{ margin-top: 0;}
   img{
     width:10em;
+  }
+  @media only screen and (max-width: 480px) {
+    padding: 1em;
+
   }
 }
 
