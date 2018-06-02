@@ -42,8 +42,8 @@ module.exports = {
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'https://fruitriin.github.io/pcl-lp/static',
-    assetsPublicPath: 'https://fruitriin.github.io/pcl-lp/',
+    assetsSubDirectory: 'pcl-lp/static',
+    assetsPublicPath: '/pcl-lp/',
 
     /**
      * Source Maps
